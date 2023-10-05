@@ -1,14 +1,31 @@
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function Register(){
 
+    const [name, setName] = useState('');
+
+    const navigation = useNavigation()
+
+    function handleNext(){
+        navigation.navigate('result', { name, valor: 20 })
+    }
+
+    function handleBack(){
+        //Desempilha uma tela 
+        navigation.goBack()
+    }
+
+
     return(
-        <View>
+        <SafeAreaView>
             <Text>Cesul</Text>
 
             <View>
                 <Text>Informe seu nome</Text>
-                <TextInput />
+                <TextInput value={name} onChangeText={setName}/>
             </View>
 
             <View>
@@ -17,11 +34,11 @@ export function Register(){
             </View>
 
             <View>
-                <Button title="Voltar" color={'#860929'}/>
-                <Button title="Proximo" color={'#01633D'}/>
+                <Button onPress={handleBack} title="Voltar" color={'#860929'}/>
+                <Button onPress={handleNext}  title="Proximo" color={'#01633D'}/>
             </View>
 
-        </View>
+        </SafeAreaView>
 
     )
 

@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Home } from "../screens/Home"
-import { Register } from "../screens/Register"
-import { Result } from "../screens/Result"
+import { Home } from "@screens/Home"
+import { Register } from "@screens/Register"
+import { Result } from "@screens/Result"
+
 
 export function AppRoutes(){
 
